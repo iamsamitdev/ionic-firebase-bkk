@@ -36,8 +36,9 @@ export class CreateProductPage implements OnInit {
       // console.log(this.productForm.value)
       this.prdService.createProduct(this.productForm.value).then(res => {
         // console.log(res);
-        this.productForm.reset();
-        // this.router.navigate(['/home']);
+        // this.productForm.reset();
+        // ส่งกลับไปหน้า tab1
+        this.router.navigate(['/tabs/tab1']);
       })
         .catch(error => console.log(error));
     }
