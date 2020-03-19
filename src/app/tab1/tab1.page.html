@@ -14,15 +14,15 @@
 <ion-content [fullscreen]="true">
   <!-- Product List-->
   <ion-list>
-    <ion-item *ngFor='let key of  [1,2,3,4,5,6,7,8,9,10]'>
+    <ion-item *ngFor="let product of Products" class="user-list">
       <ion-label>
-        <h2>Shpping Bag</h2>
-        <h3>New model shopping bag</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis...</p>
+        <h2>{{product.name}}</h2>
+        <h3>{{product.price}}</h3>
+        <p>{{product.desc}}</p>
       </ion-label>
       <div>
-        <ion-button (click)="btnEdit()" color="warning"> Edit</ion-button>
-        <ion-button (click)="btnDelete()" color="danger"> Delete</ion-button>
+        <ion-button [routerLink]="['/edit-product/', product.$key]" color="warning"> Edit</ion-button>
+        <ion-button (click)="deleteProduct(product.$key)" color="danger"> Delete</ion-button>
       </div>
     </ion-item>
   </ion-list>
